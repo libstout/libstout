@@ -22,7 +22,7 @@ utilities.
 
 It probably makes sense to at least take a look at [Option](#option),
 [Try](#try), and [Result](#result) as they are used extensively
-throughout the library. In addition, the library is designed to
+throughout the library. Note that the library is designed to
 completely avoid exceptions. See [exceptions](#exceptions) for further
 discussion.
 
@@ -86,7 +86,9 @@ units there are associated types: `Nanoseconds`, `Microseconds`,
 of these types inherit from `Duration` and can be used anywhere a
 `Duration` is expected, for example:
 
+```cpp
         Duration d = Seconds(5);
+```
 
 Note that we also provide an overload of the `std::ostream operator
 <<` for `Duration` that formats the output (including the unit) based
@@ -105,6 +107,7 @@ implicitly constructing one of these types. That is, `Error` is
 implicitly convertible to a `Try<T>` or `Result<T>` for any `T`. For
 example:
 
+```cpp
         Try<bool> parse(const std::string& s) {
           if (s == "true") return true;
           else if (s == "false") return false;
@@ -112,6 +115,7 @@ example:
         }
 
         Try<bool> t = parse("false");
+```
 
 
 <a href="none"></a>
@@ -121,7 +125,9 @@ example:
 Similar to [Error](#error), the `None` type acts as "syntactic sugar"
 to make using [Option](#option) less verbose. For example:
 
+```cpp
         Option<bool> o = None();
+```
 
 
 <a href="nothing"></a>
@@ -140,14 +146,18 @@ we capture this pattern using `Try<Nothing>` (see [Try](#try).
 The `Option` type provides a safe alternative to using `NULL`. There
 are implicit constructors provided by `Option` as well:
 
+```cpp
         Option<bool> o = true;
+```
 
 Note that the current implementation *copies* the underlying
 values. See [Philosophy](#philosophy) for more discussion. Nothing
 prevents you from using pointers, however, *the pointer will not be
 deleted when the Option is destructed*:
 
+```cpp
         Option<std::string*> o = new std::string("hello world");
+```
 
 
 <a href="owned"></a>
@@ -246,6 +256,7 @@ There are a fair number of utilities behind a few namespaces.
 <a href="net"></a>
 
 ### net
+
 
 <a href="os"></a>
 
