@@ -22,42 +22,53 @@ as well as some namespaced and miscellaneous utilities.
 
 ### Primitives
 
-* Duration
-* Error
-* fatal
-* foreach
-* hashmap
-* hashset
-* json
-* lambda
-* multihashmap
-* None
-* Nothing
-* Option
-* Owned
-* Result
-* Try
-* Stopwatch
-* UUID
+Note that none of the primitives are namespaced!
 
-### Utilities
+* <a href="#Duration">Duration</a>
+* <a href="#Error">Error</a>
+* <a href="#hashmap">hashmap</a>
+* <a href="#hashset">hashset</a>
+* <a href="#multihashmap">multihashmap</a>
+* <a href="#None">None</a>
+* <a href="#Nothing">Nothing</a>
+* <a href="#Option">Option</a>
+* <a href="#Owned">Owned</a>
+* <a href="#Result">Result</a>
+* <a href="#Try">Try</a>
+* <a href="#Stopwatch">Stopwatch</a>
+* <a href="#UUID">UUID</a>
 
-* fs
-* gtest
-* gzip
-* net
-* os
-* path
-* strings
+### Namespaces
+
+* <a href="#fs">fs</a>
+* <a href="#gzip">gzip</a>
+* <a href="#JSON">JSON</a>
+* <a href="#lambda">lambda</a>
+* <a href="#net">net</a>
+* <a href="#os">os</a>
+* <a href="#path">path</a>
+* <a href="#protobuf">protobuf</a>
+* <a href="#strings">strings</a>
 
 ### Miscellaneous
 
-* copy
-* numify
-* preprocessor
-* protobuf
-* stringify
+Like the primitives, these miscellaneous utilities are not namespaced.
 
+* <a href="#copy">copy</a>
+* <a href="#fatal">fatal</a>
+* <a href="#foreach>foreach</a>
+* <a href="#gtest">gtest</a>
+* <a href="#numify">numify</a>
+* <a href="#preprocessor">preprocessor</a>
+* <a href="#stringify">stringify</a>
+
+---
+
+<a name="Duration"></a>
+
+### Duration
+
+---
 
 ## Philosophy
 
@@ -74,7 +85,7 @@ Note, however, that we plan to liberally augment the library as we add
 C++11 support. In particular, we plan to use rvalue references and
 std::unique_ptr (although, likely wrapped as Owned) in order to
 explicitly express ownership semantics. Until then, it's unlikely that
-the performance overhead incurred via the extra copys is your
+the performance overhead incurred via any extra copying is your
 bottleneck, and if it is we'd love to hear from you!
 
 
