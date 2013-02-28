@@ -20,6 +20,12 @@ There are a handful of primitives and collections that are provided
 within the library, as well as some namespaced and miscellaneous
 utilities.
 
+It probably makes sense to at least take a look at [Option](#option),
+[Try](#try), and [Result](#result) as they are used extensively
+throughout the library. In addition, the library is designed to
+completely avoid exceptions. See [exceptions](#exceptions) for further
+discussion.
+
 
 * <a href="#primitives">Primitives</a>
   - <a href="#duration">Duration</a>
@@ -49,6 +55,7 @@ utilities.
   - <a href="#strings">strings</a>
 * <a href="#miscellaneous">Miscellaneous</a>
   - <a href="#copy">copy</a>
+  - <a href="#exit">EXIT</a>
   - <a href="#fatal">fatal</a>
   - <a href="#foreach>foreach</a>
   - <a href="#gtest">gtest</a>
@@ -72,38 +79,77 @@ utilities.
 
 Used to represent some duration of time. The main way to construct a
 `Duration` is to invoke `Duration::parse` which expects a string made
-up of a number and a unit, i.e.,
-"(0-9)+(ns|us|ms|secs|mins|hrs|days|weeks)". For each of the supported
-units there are associated types, i.e., `Nanoseconds`, `Microseconds`,
+up of a number and a unit, i.e., `42ns`, `42us`, `42ms`, `42secs`,
+`42mins`, `42hrs`, `42days`, `42weeks`. For each of the supported
+units there are associated types: `Nanoseconds`, `Microseconds`,
 `Milliseconds`, `Seconds`, `Minutes`, `Hours`, `Days`, `Weeks`. Each
 of these types inherit from `Duration` and can be used anywhere a
 `Duration` is expected, for example:
 
-    Duration d = Seconds(5);
+        Duration d = Seconds(5);
+
+Note that we also provide an overload of the `std::ostream operator
+<<` for `Duration` that formats the output (including the unit) based
+on the magnitude (e.g., `Seconds(42)` outputs `42secs` but
+`Seconds(120)` outputs `2mins`).
 
 
 <a href="error"></a>
 
 ### Error
 
+Primitives such as [Try](#try) and [Result](#result) can represent
+errors. You can explicitly construct one of these types as an error,
+but it's a bit verbose. The `Error` type acts as "syntactic sugar" for
+implicitly constructing one of these types. That is, `Error` is
+implicitly convertible to a `Try<T>` or `Result<T>` for any `T`. For
+example:
 
+        Try<bool> parse(const std::string& s) {
+          if (s == "true") return true;
+          else if (s == "false") return false;
+          else return Error("Failed to parse string as boolean");
+        }
 
-[exceptions](#exceptions)
+        Try<bool> t = parse("false");
 
 
 <a href="none"></a>
 
 ### None
 
+Similar to [Error](#error), the `None` type acts as "syntactic sugar"
+to make using [Option](#option) less verbose. For example:
+
+        Option<bool> o = None();
+
 
 <a href="nothing"></a>
 
 ### Nothing
 
+A lot of functions that return `void` can also "return" an
+error. Using exceptions this can be captured by returning `void` and
+throwing an exception to represent the error. Instead, we capture this
+pattern by using the `Nothing` type combined with `Try<Nothing>` (see
+[Try](#try).
+
 
 <a href="option"></a>
 
 ### Option
+
+The `Option` type provides a safe alternative to using `NULL`. There
+are implicit constructors provided by `Option` as well:
+
+        Option<bool> o = true;
+
+Note that the current implementation *copies* the underlying
+values. See [Philosophy](#philosophy) for more discussion. Nothing
+prevents you from using pointers, however, *the pointer will not be
+deleted when the Option is destructed*:
+
+        Option<std::string*> o = new std::string("hello world");
 
 
 <a href="owned"></a>
@@ -236,6 +282,11 @@ namespaced.
 <a href="copy"></a>
 
 ### copy
+
+
+<a href="exit"></a>
+
+### EXIT
 
 
 <a href="fatal"></a>
