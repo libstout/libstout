@@ -8,11 +8,75 @@ Depending on which headers you'd like to use, you may require the
 following third party libraries:
 
   - Boost
-  - Google's glog (this dependency will be removed in the future).
-  - Google's protobuf.
-  - Google's gmock/gtest.
+  - Google's glog (this dependency will be removed in the future)
+  - Google's protobuf
+  - Google's gmock/gtest
 
 ---
+
+## Stout Overview
+
+There are a handful of primitives that are provided within the library
+as well as some namespaced and miscellaneous utilities.
+
+
+### Primitives
+
+* Duration
+* Error
+* fatal
+* foreach
+* hashmap
+* hashset
+* json
+* lambda
+* multihashmap
+* None
+* Nothing
+* Option
+* Owned
+* Result
+* Try
+* Stopwatch
+* UUID
+
+### Utilities
+
+* fs
+* gtest
+* gzip
+* net
+* os
+* path
+* strings
+
+### Miscellaneous
+
+* copy
+* numify
+* preprocessor
+* protobuf
+* stringify
+
+
+## Philosophy
+
+*"Premature optimization is the root of all evil."*
+
+You'll notice that the library is designed in such a way that can lead
+to a lot of copying. This decision was deliberate. Capturing the
+semantics of pointer ownership is hard to enforce programmatically
+unless you copy, and in many instances these copies can be elided by
+an optimizing compiler. We've choosen safety rather than premature
+optimizations.
+
+Note, however, that we plan to liberally augment the library as we add
+C++11 support. In particular, we plan to use rvalue references and
+std::unique_ptr (although, likely wrapped as Owned) in order to
+explicitly express ownership semantics. Until then, it's unlikely that
+the performance overhead incurred via the extra copys is your
+bottleneck, and if it is we'd love to hear from you!
+
 
 ## Building Tests
 
