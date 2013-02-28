@@ -62,13 +62,165 @@ Like the primitives, these miscellaneous utilities are not namespaced.
 * <a href="#preprocessor">preprocessor</a>
 * <a href="#stringify">stringify</a>
 
----
 
 <a name="Duration"></a>
 
 ### Duration
 
----
+
+<a href="#Error"></a>
+
+### Error
+
+
+<a href="#hashmap"></a>
+
+### hashmap
+
+*Requires Boost.*
+
+
+<a href="#hashset"></a>
+
+### hashset
+
+*Requires Boost.*
+
+
+<a href="#multihashmap"></a>
+
+### multihashmap
+
+*Requires Boost.*
+
+
+<a href="#None"></a>
+
+### None
+
+
+<a href="#Nothing"></a>
+
+### Nothing
+
+
+<a href="#Option"></a>
+
+### Option
+
+
+<a href="#Owned"></a>
+
+### Owned
+
+
+<a href="#Result"></a>
+
+### Result
+
+
+<a href="#Try"></a>
+
+### Try
+
+
+<a href="#Stopwatch"></a>
+
+### Stopwatch
+
+
+<a href="#UUID"></a>
+
+### UUID
+
+
+<a href="#fs"></a>
+
+### fs
+
+
+<a href="#gzip"></a>
+
+### gzip
+
+
+<a href="#JSON"></a>
+
+### JSON
+
+
+<a href="#lambda"></a>
+
+### lambda
+
+
+<a href="#net"></a>
+
+### net
+
+<a href="#os"></a>
+
+### os
+
+
+<a href="#path"></a>
+
+### path
+
+
+<a href="#protobuf"></a>
+
+### protobuf
+
+*Requires protobuf.*
+
+
+<a href="#strings"></a>
+
+### strings
+
+
+
+<a href="#copy"></a>
+
+### copy
+
+
+<a href="#fatal"></a>
+
+### fatal
+
+
+<a href="#foreach></a>
+
+### foreach
+
+*Requires Boost.*
+
+
+<a href="#gtest"></a>
+
+### gtest
+
+*Requires gtest.*
+
+
+<a href="#numify"></a>
+
+### numify
+
+
+<a href="#preprocessor"></a>
+
+### preprocessor
+
+*Requires Boost.*
+
+
+<a href="#stringify"></a>
+
+### stringify
+
 
 ## Philosophy
 
