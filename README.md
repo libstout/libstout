@@ -12,9 +12,9 @@ following third party libraries:
   - Google's protobuf.
   - Google's gmock/gtest.
 
+---
 
-Building Tests
-==============
+## Building Tests
 
 We'll assume you've got a distribution of gmock and have already built
 a static archive called libgmock.a (see gmock's README to learn
@@ -22,11 +22,11 @@ how). We'll also assume the Boost and glog headers can be found via
 the include paths and libglog.* can be found via the library search
 paths. You can then build the tests via:
 
-$ g++ -I${STOUT}/include -I$(GMOCK)/gtest/include -I$(GMOCK)/include \
-  ${STOUT}/tests/tests.cpp libgmock.a -lglog -o tests
+       $ g++ -I${STOUT}/include -I$(GMOCK)/gtest/include -I$(GMOCK)/include \
+         ${STOUT}/tests/tests.cpp libgmock.a -lglog -o tests
 
 Note that if you want to test the gzip headers you'll need to define
 HAVE_LIBZ and link against libz:
 
-$ g++ -I${STOUT}/include -I$(GMOCK)/gtest/include -I$(GMOCK)/include \
-  -DHAVE_LIBZ ${STOUT}/tests/tests.cpp libgmock.a -lglog -lz -o tests
+       $ g++ -I${STOUT}/include -I$(GMOCK)/gtest/include -I$(GMOCK)/include \
+         -DHAVE_LIBZ ${STOUT}/tests/tests.cpp libgmock.a -lglog -lz -o tests
