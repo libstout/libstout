@@ -21,36 +21,33 @@ within the library, as well as some namespaced and miscellaneous
 utilities.
 
 
-* <a href="#Primitives">Primitives</a>
-  - <a href="#Duration">Duration</a>
-  - <a href="#Error">Error</a>
-  - <a href="#None">None</a>
-  - <a href="#Nothing">Nothing</a>
-  - <a href="#Option">Option</a>
-  - <a href="#Owned">Owned</a>
-  - <a href="#Result">Result</a>
-  - <a href="#Try">Try</a>
-  - <a href="#Stopwatch">Stopwatch</a>
-  - <a href="#UUID">UUID</a>
-
-* <a href="#Collections">Collections</a>
+* <a href="#primitives">Primitives</a>
+  - <a href="#duration">Duration</a>
+  - <a href="#error">Error</a>
+  - <a href="#none">None</a>
+  - <a href="#nothing">Nothing</a>
+  - <a href="#option">Option</a>
+  - <a href="#owned">Owned</a>
+  - <a href="#result">Result</a>
+  - <a href="#try">Try</a>
+  - <a href="#stopwatch">Stopwatch</a>
+  - <a href="#uuid">UUID</a>
+* <a href="#collections">Collections</a>
   - <a href="#cache">cache</a>
   - <a href="#hashmap">hashmap</a>
   - <a href="#hashset">hashset</a>
   - <a href="#multihashmap">multihashmap</a>
-
-* <a href="#Namespaces">Namespaces</a>
+* <a href="#namespaces">Namespaces</a>
   - <a href="#fs">fs</a>
   - <a href="#gzip">gzip</a>
-  - <a href="#JSON">JSON</a>
+  - <a href="#json">JSON</a>
   - <a href="#lambda">lambda</a>
   - <a href="#net">net</a>
   - <a href="#os">os</a>
   - <a href="#path">path</a>
   - <a href="#protobuf">protobuf</a>
   - <a href="#strings">strings</a>
-
-* <a href="#Miscellaneous">Miscellaneous</a>
+* <a href="#miscellaneous">Miscellaneous</a>
   - <a href="#copy">copy</a>
   - <a href="#fatal">fatal</a>
   - <a href="#foreach>foreach</a>
@@ -58,75 +55,90 @@ utilities.
   - <a href="#numify">numify</a>
   - <a href="#preprocessor">preprocessor</a>
   - <a href="#stringify">stringify</a>
+* <a href="#philosophy">Philosophy</a>
+  - <a href="#exceptions">Exceptions</a>
 
 
-<a name="Primitives"></a>
+<a name="primitives"></a>
 
 ## Primitives
 
 **Note that none of the primitives are namespaced!**
 
 
-<a name="Duration"></a>
+<a name="duration"></a>
 
 ### Duration
 
-Used to represent some duration of time. T
+Used to represent some duration of time. The main way to construct a
+`Duration` is to invoke `Duration::parse` which expects a string made
+up of a number and a unit, i.e.,
+"(0-9)+(ns|us|ms|secs|mins|hrs|days|weeks)". For each of the supported
+units there are associated types, i.e., `Nanoseconds`, `Microseconds`,
+`Milliseconds`, `Seconds`, `Minutes`, `Hours`, `Days`, `Weeks`. Each
+of these types inherit from `Duration` and can be used anywhere a
+`Duration` is expected, for example:
+
+    Duration d = Seconds(5);
 
 
-<a href="Error"></a>
+<a href="error"></a>
 
 ### Error
 
 
-<a href="None"></a>
+
+[exceptions](#exceptions)
+
+
+<a href="none"></a>
 
 ### None
 
 
-<a href="Nothing"></a>
+<a href="nothing"></a>
 
 ### Nothing
 
 
-<a href="Option"></a>
+<a href="option"></a>
 
 ### Option
 
 
-<a href="Owned"></a>
+<a href="owned"></a>
 
 ### Owned
 
 
-<a href="Result"></a>
+<a href="result"></a>
 
 ### Result
 
 
-<a href="Try"></a>
+<a href="try"></a>
 
 ### Try
 
 
-<a href="Stopwatch"></a>
+<a href="stopwatch"></a>
 
 ### Stopwatch
 
 
-<a href="UUID"></a>
+<a href="uuid"></a>
 
 ### UUID
 
 
-<a href="Collections"></a>
+<a href="collections"></a>
 
 ## Collections
 
-The library includes a few collection classes. Mostly these are
-wrappers around existing collection classes but with modified
-interfaces to provide a more monadic apporach (e.g., returning
-an [Option](#Option)).
+The library includes a few different collections. Mostly these are
+wrappers around existing collections but with modified interfaces to
+provide a more monadic apporach (e.g., returning an
+[Option](#option)).
 
 
 <a name="cache"></a>
@@ -134,8 +146,8 @@ an [Option](#Option)).
 ### cache
 
 A templated implementation of a least-recently used (LRU) cache. Note
-that the key type must be compatible with std::tr1::unordered_map. The
-interface is rather poor right now, only providing 'put' and 'get'
+that the key type must be compatible with `std::tr1::unordered_map`.
+The interface is rather poor right now, only providing 'put' and 'get'
 operations.
 
 
@@ -160,7 +172,7 @@ operations.
 *Requires Boost.*
 
 
-<a href="Namespaces"></a>
+<a href="namespaces"></a>
 
 ## Namespaces
 
@@ -177,7 +189,7 @@ There are a fair number of utilities behind a few namespaces.
 ### gzip
 
 
-<a href="JSON"></a>
+<a href="json"></a>
 
 ### JSON
 
@@ -212,6 +224,8 @@ There are a fair number of utilities behind a few namespaces.
 
 ### strings
 
+
+<a href="miscellaneous"></a>
 
 ## Miscellaneous
 
@@ -260,6 +274,8 @@ namespaced.
 ### stringify
 
 
+<a href="philosophy"></a>
+
 ## Philosophy
 
 *"Premature optimization is the root of all evil."*
@@ -277,6 +293,15 @@ std::unique_ptr (although, likely wrapped as Owned) in order to
 explicitly express ownership semantics. Until then, it's unlikely that
 the performance overhead incurred via any extra copying is your
 bottleneck, and if it is we'd love to hear from you!
+
+
+<a href="exceptions"></a>
+
+### Exceptions
+
+The library WILL NEVER throw exceptions and will attempt to capture
+any exceptions thrown by underlying C++ functions and convert them
+into an [Error](#error).
 
 
 ## Building Tests
