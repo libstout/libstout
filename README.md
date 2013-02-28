@@ -24,25 +24,25 @@ as well as some namespaced and miscellaneous utilities.
 
 Note that none of the primitives are namespaced!
 
-* <a href="#Duration">Duration</a>
-* <a href="#Error">Error</a>
+* <a href="#duration">Duration</a>
+* <a href="#error">Error</a>
 * <a href="#hashmap">hashmap</a>
 * <a href="#hashset">hashset</a>
 * <a href="#multihashmap">multihashmap</a>
-* <a href="#None">None</a>
-* <a href="#Nothing">Nothing</a>
-* <a href="#Option">Option</a>
-* <a href="#Owned">Owned</a>
-* <a href="#Result">Result</a>
-* <a href="#Try">Try</a>
-* <a href="#Stopwatch">Stopwatch</a>
-* <a href="#UUID">UUID</a>
+* <a href="#none">None</a>
+* <a href="#nothing">Nothing</a>
+* <a href="#option">Option</a>
+* <a href="#owned">Owned</a>
+* <a href="#result">Result</a>
+* <a href="#try">Try</a>
+* <a href="#stopwatch">Stopwatch</a>
+* <a href="#uuid">UUID</a>
 
 ### Namespaces
 
 * <a href="#fs">fs</a>
 * <a href="#gzip">gzip</a>
-* <a href="#JSON">JSON</a>
+* <a href="#json">JSON</a>
 * <a href="#lambda">lambda</a>
 * <a href="#net">net</a>
 * <a href="#os">os</a>
@@ -63,161 +63,161 @@ Like the primitives, these miscellaneous utilities are not namespaced.
 * <a href="#stringify">stringify</a>
 
 
-<a name="Duration"></a>
+<a name="duration"></a>
 
 ### Duration
 
 
-<a href="#Error"></a>
+<a href="error"></a>
 
 ### Error
 
 
-<a href="#hashmap"></a>
+<a href="hashmap"></a>
 
 ### hashmap
 
 *Requires Boost.*
 
 
-<a href="#hashset"></a>
+<a href="hashset"></a>
 
 ### hashset
 
 *Requires Boost.*
 
 
-<a href="#multihashmap"></a>
+<a href="multihashmap"></a>
 
 ### multihashmap
 
 *Requires Boost.*
 
 
-<a href="#None"></a>
+<a href="none"></a>
 
 ### None
 
 
-<a href="#Nothing"></a>
+<a href="nothing"></a>
 
 ### Nothing
 
 
-<a href="#Option"></a>
+<a href="option"></a>
 
 ### Option
 
 
-<a href="#Owned"></a>
+<a href="owned"></a>
 
 ### Owned
 
 
-<a href="#Result"></a>
+<a href="result"></a>
 
 ### Result
 
 
-<a href="#Try"></a>
+<a href="try"></a>
 
 ### Try
 
 
-<a href="#Stopwatch"></a>
+<a href="stopwatch"></a>
 
 ### Stopwatch
 
 
-<a href="#UUID"></a>
+<a href="uuid"></a>
 
 ### UUID
 
 
-<a href="#fs"></a>
+<a href="fs"></a>
 
 ### fs
 
 
-<a href="#gzip"></a>
+<a href="gzip"></a>
 
 ### gzip
 
 
-<a href="#JSON"></a>
+<a href="json"></a>
 
 ### JSON
 
 
-<a href="#lambda"></a>
+<a href="lambda"></a>
 
 ### lambda
 
 
-<a href="#net"></a>
+<a href="net"></a>
 
 ### net
 
-<a href="#os"></a>
+<a href="os"></a>
 
 ### os
 
 
-<a href="#path"></a>
+<a href="path"></a>
 
 ### path
 
 
-<a href="#protobuf"></a>
+<a href="protobuf"></a>
 
 ### protobuf
 
 *Requires protobuf.*
 
 
-<a href="#strings"></a>
+<a href="strings"></a>
 
 ### strings
 
 
 
-<a href="#copy"></a>
+<a href="copy"></a>
 
 ### copy
 
 
-<a href="#fatal"></a>
+<a href="fatal"></a>
 
 ### fatal
 
 
-<a href="#foreach></a>
+<a href="foreach></a>
 
 ### foreach
 
 *Requires Boost.*
 
 
-<a href="#gtest"></a>
+<a href="gtest"></a>
 
 ### gtest
 
 *Requires gtest.*
 
 
-<a href="#numify"></a>
+<a href="numify"></a>
 
 ### numify
 
 
-<a href="#preprocessor"></a>
+<a href="preprocessor"></a>
 
 ### preprocessor
 
 *Requires Boost.*
 
 
-<a href="#stringify"></a>
+<a href="stringify"></a>
 
 ### stringify
 
