@@ -129,10 +129,8 @@ to make using [Option](#option) less verbose. For example:
 ### Nothing
 
 A lot of functions that return `void` can also "return" an
-error. Using exceptions this can be captured by returning `void` and
-throwing an exception to represent the error. Instead, we capture this
-pattern by using the `Nothing` type combined with `Try<Nothing>` (see
-[Try](#try).
+error. Since we don't use exceptions (see [Exceptions](#exceptions))
+we capture this pattern using `Try<Nothing>` (see [Try](#try).
 
 
 <a href="option"></a>
