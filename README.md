@@ -164,6 +164,12 @@ deleted when the Option is destructed*:
 
 ### Owned
 
+The `Owned` type represents a uniquely owned pointer. With C++11 this
+will extend `std::unique_ptr`, requiring the user to adhere to move
+semantics. Until then, an `Owned` instance inherits from
+`std::tr1::shared_ptr` and is used more as a placeholder for where we
+want to use move semantics in the future.
+
 
 <a href="result"></a>
 
