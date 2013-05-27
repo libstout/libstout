@@ -1,1 +1,1 @@
-We've <a href="github.com/3rdparty/stout">moved</a>!
+We've [moved](http://github.com/3rdparty/stout)!
